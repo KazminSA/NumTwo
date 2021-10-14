@@ -9,7 +9,7 @@ public class CityRegisterValidator {
     String login;
     String password;
 
-    AnswerCityRegister checkCityRegister(StudentOrder so) {
+    public AnswerCityRegister checkCityRegister(StudentOrder so) {
         System.out.println("checkCityRegister is running: " + hostName + ", " + login + ", " + password);
         AnswerCityRegister ans = new AnswerCityRegister();
         ans.sucsess = false;
