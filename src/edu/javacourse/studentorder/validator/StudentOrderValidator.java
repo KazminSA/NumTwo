@@ -1,7 +1,7 @@
 package edu.javacourse.studentorder.validator;
 
 import edu.javacourse.studentorder.mail.MailSender;
-import edu.javacourse.studentorder.StudentOrder;
+import edu.javacourse.studentorder.domain.StudentOrder;
 import edu.javacourse.studentorder.domain.AnswerChildren;
 import edu.javacourse.studentorder.domain.AnswerCityRegister;
 import edu.javacourse.studentorder.domain.AnswerStudent;
