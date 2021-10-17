@@ -1,4 +1,4 @@
-package edu.javacourse.studentorder;
+package edu.javacourse.studentorder.domain;
 
 public class StudentOrder {
     private String hFirstName;
