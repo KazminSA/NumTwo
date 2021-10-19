@@ -1,5 +1,6 @@
 package edu.javacourse.studentorder.validator;
 
+import edu.javacourse.studentorder.SaveStudentOrder;
 import edu.javacourse.studentorder.mail.MailSender;
 import edu.javacourse.studentorder.domain.StudentOrder;
 import edu.javacourse.studentorder.domain.AnswerChildren;
@@ -29,32 +30,32 @@ public class StudentOrderValidator {
         sov.checkAll();
     }
     public void checkAll() {
+            StudentOrder[] soArray = readStudentOrders();
 
-        while (true) {
-            StudentOrder so = readStudentOrder();
-            if (so == null) {
-                break;
+            for (int i = 0; i < soArray.length; i++) {
+                System.out.println();
+                chekOneOrder(soArray[i]);
             }
-            System.out.println("Finish");
 
-            AnswerCityRegister cityAnswer = checkCityRegister(so);
-            if (!cityAnswer.sucsess) {
-                System.out.println("No register in city");
-                //continue;
-                break;
-            }
-            AnswerChildren childAnswer = checkChildren(so);
-            AnswerStudent studentAnswer = checkStudent(so);
-            AnswerWedding wedAnswer = checkWedding(so);
+    }
 
-            sendMail(so);
+    public StudentOrder[] readStudentOrders() {
+        StudentOrder[] soArray = new StudentOrder[3];
+
+        for (int i = 0; i < soArray.length; i++) {
+            soArray[i] = SaveStudentOrder.buildStudentOrder(i);
         }
+        return soArray;
+    }
+    public void chekOneOrder (StudentOrder so) {
+        AnswerCityRegister cityAnswer = checkCityRegister(so);
+        AnswerChildren childAnswer = checkChildren(so);
+        AnswerStudent studentAnswer = checkStudent(so);
+        AnswerWedding wedAnswer = checkWedding(so);
+
+        sendMail(so);
     }
 
-    public StudentOrder readStudentOrder() {
-        StudentOrder so = new StudentOrder();// Любой текст
-        return so;
-    }
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
         return cityRegisterValidator.checkCityRegister(so);
     }

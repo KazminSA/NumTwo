@@ -1,13 +1,14 @@
 package edu.javacourse.studentorder;
 
 import edu.javacourse.studentorder.domain.Adult;
+import edu.javacourse.studentorder.domain.Person;
 import edu.javacourse.studentorder.domain.StudentOrder;
 
 public class SaveStudentOrder {
 
     public static void main(String[] args) {
         StudentOrder so = new StudentOrder();
-        buidStudentOrder();
+        buildStudentOrder(so.getStudentOrderID());
         long ans = saveStudentOrder(so);
         System.out.println(ans);
     }
@@ -18,18 +19,11 @@ public class SaveStudentOrder {
         return answer;
     }
 
-    static StudentOrder buidStudentOrder () {
+    public static StudentOrder buildStudentOrder (long id) {
         StudentOrder so = new StudentOrder();
+        so.setStudentOrderID(id);
 
-        Adult husband = new Adult();
-
-//        husband.setGivenName("Андрей");
-//        husband.setSurName("Иванов");
-//        husband.setPassportNumber("01234456");
-//        so.setHusbend(husband);
-//
-//        String ans = husband.getPersonString();
-//        System.out.println(ans);
+        Adult husband = new Adult("Vasiliev", "Andrey", null);
 
         return so;
     }
