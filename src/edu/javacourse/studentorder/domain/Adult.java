@@ -11,7 +11,9 @@ public class Adult extends Person {
     private String university;
     private String studentID;
 
-
+    public Adult(String surName, String givenName, LocalDate dateOfBirth) {
+        super(surName, givenName, dateOfBirth);
+    }
 
     public String getUniversity() {
         return university;

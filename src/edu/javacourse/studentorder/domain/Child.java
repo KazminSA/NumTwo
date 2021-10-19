@@ -8,6 +8,10 @@ public class Child extends Person {
     private LocalDate issueDate;
     private String issueDepartment;
 
+    public Child(String surName, String givenName, LocalDate dateOfBirth) {
+        super(surName, givenName, dateOfBirth);
+    }
+
     public String getSertificateNumber() {
         return sertificateNumber;
     }
